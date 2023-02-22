@@ -5,6 +5,7 @@
   "main": "package.json",
   "license": "UNLICENSED",
   "scripts": {
+    "cors" : "sanity cors add http://localhost:3333",
     "dev": "sanity dev",
     "start": "sanity start",
     "build": "sanity build",

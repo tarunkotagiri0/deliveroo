@@ -16,6 +16,7 @@
     "expo": "~47.0.12",
     "expo-status-bar": "~1.4.2",
     "nativewind": "^2.0.11",
+    "query-string": "^8.1.0",
     "react": "18.1.0",
     "react-native": "0.70.5",
     "react-native-heroicons": "^3.2.0",
@@ -23,7 +24,8 @@
     "react-native-screens": "~3.18.0",
     "react-native-svg": "13.4.0",
     "react-native-web": "~0.18.7",
-    "tailwindcss-react-native": "^1.7.10"
+    "tailwindcss-react-native": "^1.7.10",
+    "url-search-params-polyfill": "^8.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
