@@ -21,7 +21,8 @@ const client = createClient({
 
 const HomeScreen = () => {
     const navigation = useNavigation();
-    const [featuredCategories, setFeaturedCategories] = useState(null)
+
+    const [featuredCategories, setFeaturedCategories] = useState([])
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -37,6 +38,7 @@ const HomeScreen = () => {
     //         dishes[]->
     //       }
     //     }`;
+
     //     client
     //         .fetch(query)
     //         .then((data) => {
@@ -45,32 +47,32 @@ const HomeScreen = () => {
     //         .catch((error) => console.log(error));
     // }, []);
 
-    // useEffect(() => {
-    //     fetch('https://lmtrfu4m.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%20%3D%3D%20%22featured%22%5D%20%7B%0A%20%20...%2C%0A%20%20restuarants%5B%5D-%3E%7B%0A%20%20%20%20...%2C%0A%20%20%20%20dishes%5B%5D-%3E%0A%20%20%7D%0A%7D')
-    //         .then((response) => response.json())
-    //         .then((data) => {
-    //             setFeaturedCategories(data.result)
-    //             // console.log(data)
-    //             // const obj = JSON.parse(data)
-    //             // console.log(data)
-    //         })
-    //         .catch((error) => {
-    //             console.error('Error:', error);
-    //         });
-    // }, [])
-    console.log(`
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    `)
-    // console.log(featuredCategories)
+    useEffect(() => {
+        fetch('https://lmtrfu4m.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%20%3D%3D%20%22featured%22%5D%20%7B%0A%20%20...%2C%0A%20%20restuarants%5B%5D-%3E%7B%0A%20%20%20%20...%2C%0A%20%20%20%20dishes%5B%5D-%3E%0A%20%20%7D%0A%7D')
+            .then((response) => response.json())
+            .then((data) => {
+                setFeaturedCategories(data.result)
+                // console.log(data)
+                // const obj = JSON.parse(data)
+                // console.log(data)
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }, [])
+    // console.log(`
 
+
+
+
+
+
+
+
+
+    // `)
+    // console.log(featuredCategories)
+    // console.log(featuredCategories.length);
     return (
         <SafeAreaView className="bg-white pt-5">
             {/* <Text className='text-red-500'> */}
@@ -119,40 +121,27 @@ const HomeScreen = () => {
                 {/* Categories  */}
                 <Categories />
 
-                {/* Featured Rows
-                {featuredCategories?.map((category) => {
-                    console.log(category._id)
-                    console.log(category.name)
-                    console.log(category.short_description)
-                    // <FeaturedRow
-                    //     key={category._id}
-                    //     id={category._id}
-                    //     title={category.name}
-                    //     description={category.short_description}
-                    // />
-                })} */}
+                {/* Featured Rows */}
+
+                {featuredCategories?.map((category) => (
+                    // console.log(category._id)
+                    // console.log(category.name)
+                    // console.log(category.short_description)
+                    <FeaturedRow
+                        key={category._id}
+                        id={category._id}
+                        title={category.name}
+                        description={category.short_description}
+                    />
+                ))}
 
 
-                <FeaturedRow
+                {/* <FeaturedRow
                     id="123"
                     title="Featured"
                     description="Paid Placements for our partners"
                 // featuredCategory="featured"
-                />
-
-                <FeaturedRow
-                    id="123"
-                    title="Tasty Discounts"
-                    description="Paid Placements for our partners"
-                // featuredCategory="featured"
-                />
-
-                <FeaturedRow
-                    id="123"
-                    title="Offers Near You!"
-                    description="Paid Placements for our partners"
-                // featuredCategory="featured"
-                />
+                />*/}
 
             </ScrollView>
 

@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "deliveroo",
-    "slug": "deliveroo",
+    "slug": "food-delivery-application-deliveroo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -24,10 +24,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.tarunkotagiri.fooddeliveryapplicationdeliveroo"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c2d0e7e4-5cf5-4187-904d-d422e1b1f0d6"
+      }
+    },
+    "owner": "tarunkotagiri"
   }
 }
